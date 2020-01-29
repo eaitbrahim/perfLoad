@@ -12,6 +12,17 @@ socket.on('connect', () => {
       break;
     }
   }
+
+  // client auth with single key value
+  socket.emit('clientAuth', '6677ytyty7677ghgd77793');
+
+  // start sending over data on interval
+  let perfDataInterval = setInterval(() => {
+    performanceData().then(allPerformanceData => {
+      //console.log(allPerformanceData);
+      socket.emit('perfData', allPerformanceData);
+    });
+  }, 1000);
 })
 
 function performanceData() {
@@ -73,7 +84,3 @@ function getCpuLoad() {
     }, 100);
   });
 }
-
-performanceData().then(allPerformanceData => {
-  console.log(allPerformanceData);
-});
