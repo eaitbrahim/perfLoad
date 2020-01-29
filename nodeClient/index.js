@@ -1,4 +1,18 @@
 const os = require('os');
+const io = require('socket.io-client');
+let socket = io('http://127.0.0.1:8181');
+
+socket.on('connect', () => {
+  //console.log('I connected to the socket server...hooray!');
+  const nI = os.networkInterfaces();
+  let macA;
+  for (let key in nI) {
+    if (!nI[key][0].internal) {
+      macA = nI[key][0].mac;
+      break;
+    }
+  }
+})
 
 function performanceData() {
   return new Promise(async (resolve, reject) => {
