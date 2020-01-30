@@ -11,16 +11,28 @@ class Widget extends Component {
   }
 
   render() {
-    const {freeMem, totalMem, usedMem, memUsage, osType, upTime, cpuModel, numCores, cpuSpeed, cpuLoad, macA} = this.props.data;
-    const cpu = { cpuLoad};
-    const mem = { freeMem, totalMem, usedMem, memUsage};
-    const info = {macA, osType, upTime, cpuModel, numCores, cpuSpeed }
+    const {
+      freeMem,
+      totalMem,
+      usedMem,
+      memUsage,
+      osType,
+      upTime,
+      cpuModel,
+      numCores,
+      cpuSpeed,
+      cpuLoad,
+      macA
+    } = this.props.data;
+    const cpu = { cpuLoad };
+    const mem = { freeMem, totalMem, usedMem, memUsage };
+    const info = { macA, osType, upTime, cpuModel, numCores, cpuSpeed };
 
     return (
       <div>
-        <Cpu cpuData = {cpu}/>
-        <Mem memData = {mem}/>
-        <Info info infoData = {info}/>
+        <Cpu cpuData={cpu} />
+        <Mem memData={mem} />
+        <Info info infoData={info} />
       </div>
     );
   }

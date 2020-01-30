@@ -3,17 +3,18 @@ import drawCircle from './utilities/canvasLoadAnimation';
 
 function Cpu(props) {
   const canvas = document.querySelector('canvas');
+  console.log('canvas:', canvas);
   drawCircle(canvas, props.cpuData.cpuLoad);
 
-  return(
-    <div className="col-sm-3 cpu">
-      <h3>CPU load</h3>
-      <div className="canvas-wrapper">
-        <div className="canvas"></div>
-        <div className="cpu-text">{props.cpuData.cpuLoad}</div>
+  return (
+    <div className='col-sm-3 cpu'>
+      <h3> CPU load </h3>
+      <div className='canvas-wrapper'>
+        <canvas className='canvas' width='200' height='200'></canvas>
+        <div className='cpu-text'> {props.cpuData.cpuLoad} %</div>
       </div>
     </div>
-  )
+  );
 }
 
 export default Cpu;
