@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Cpu from './Cpu';
 import Mem from './Mem';
 import Info from './Info';
+import './widget.css';
 
 class Widget extends Component {
   constructor() {
@@ -10,7 +11,7 @@ class Widget extends Component {
   }
 
   render() {
-    const {freeMem, totalMem, usedMem, memUsage, osType, upTime, cpuModel, numCores, cpuSpeed, cpuLoad, macA} = this.state.data;
+    const {freeMem, totalMem, usedMem, memUsage, osType, upTime, cpuModel, numCores, cpuSpeed, cpuLoad, macA} = this.props.data;
     const cpu = { cpuLoad};
     const mem = { freeMem, totalMem, usedMem, memUsage};
     const info = {macA, osType, upTime, cpuModel, numCores, cpuSpeed }
