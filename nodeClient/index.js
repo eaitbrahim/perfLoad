@@ -16,6 +16,11 @@ socket.on('connect', () => {
   // client auth with single key value
   socket.emit('clientAuth', '6677ytyty7677ghgd77793');
 
+  performanceData().then(allPerformanceData => {
+    allPerformanceData.macA = macA;
+    socket.emit('initPerfData', allPerformanceData);
+  });
+
   // start sending over data on interval
   let perfDataInterval = setInterval(() => {
     performanceData().then(allPerformanceData => {
@@ -23,6 +28,10 @@ socket.on('connect', () => {
       socket.emit('perfData', allPerformanceData);
     });
   }, 1000);
+
+  socket.on('disconnect', () => {
+    clearInterval(perfDataInterval);
+  })
 })
 
 function performanceData() {

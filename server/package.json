@@ -1,0 +1,27 @@
+{
+  "name": "perfload",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eaitbrahim/perfLoad.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/eaitbrahim/perfLoad/issues"
+  },
+  "homepage": "https://github.com/eaitbrahim/perfLoad#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "farmhash": "^3.0.0",
+    "mongoose": "^5.8.10",
+    "socket.io": "^2.3.0",
+    "socket.io-redis": "^5.2.0"
+  }
+}
