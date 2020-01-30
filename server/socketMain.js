@@ -15,6 +15,7 @@ function socketMain(io, socket) {
         } else if (key === 'hghhg7878dfdfdfd232xcv') {
             // valid ui client has joined
             socket.join('ui');
+            console.log('A dashboard has just joined')
         } else {
             // an invalid client has joined. Goodbye
             socket.disconnect(true);
@@ -30,7 +31,7 @@ function socketMain(io, socket) {
     });
 
     socket.on('perfData', data => {
-        console.log(data);
+        io.to('ui').emit('data', data);
     });
 }
 
